@@ -4,6 +4,29 @@
 #include "CLI/CLI.hpp"
 #include "config.h"
 
+class point {
+    private:
+    int x;
+    int y;
+
+    public:
+    // Standardkonstruktor
+    point() : x(0), y(0) {}
+
+    // Konstruktor mit Parametern
+    point(int x_value, int y_value) : x(x_value), y(y_value) {}
+
+    //Methode
+    void move(int dx, int dy){
+        x += dx;
+        y += dy;
+    }
+    void print() const{
+    fmt::print("({},{})\n", x, y);
+    }
+};
+
+
 auto main(int argc, char **argv) -> int
 {
     /**
@@ -29,6 +52,14 @@ auto main(int argc, char **argv) -> int
     fmt::print("Hello, {}!\n", app.get_name());
 
     /* INSERT YOUR CODE HERE */
+    point p1(2, 3);     // Erzeugen eines Punktes (2, 3)
+    p1.print();         // Ausgabe: (2, 3)
+
+    p1.move(1, -1);     // Verschiebe um (1, -1)
+    p1.print();         // Ausgabe: (3, 2)
+
+    point p2;           // Standardkonstruktor -> (0, 0)
+    p2.print();         // Ausgabe: (0, 0)
 
     return 0; /* exit gracefully*/
 }
