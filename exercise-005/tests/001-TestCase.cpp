@@ -2,7 +2,7 @@
 // And write tests in the same file:
 #include <catch2/catch_test_macros.hpp>
 
-static auto factorial(int number) -> int
+static auto factorial(int number) ->  int
 {
     // return number <= 1 ? number : Factorial( number - 1 ) * number;  // fail
     return number <= 1 ? 1 : factorial(number - 1) * number;  // pass
